@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * Returns a new object with only few attributes of the original object.
@@ -11,7 +11,7 @@ import React from 'react';
 export function objectWithOnly(object, attrs) {
     let newObject = {};
 
-    attrs.forEach(attr => {
+    attrs.forEach((attr) => {
         newObject[attr] = object[attr].bind(object);
     });
 
@@ -22,7 +22,9 @@ export function objectWithOnly(object, attrs) {
  * Wraps react children elements with props.
  */
 export function wrapChildrenWith(children, props) {
-    return React.Children.map(children, child => React.cloneElement(child, props));
+    return React.Children.map(children, (child) =>
+        React.cloneElement(child, props),
+    );
 }
 
 /**
