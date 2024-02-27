@@ -37,7 +37,8 @@ jobs:
                   npm run format
 
             - name: Unit Test
-              run: npm test2
+              run: |
+                    npm run test2
 
             - name: Test Report
               uses: dorny/test-reporter@v1
