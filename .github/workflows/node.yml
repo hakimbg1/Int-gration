@@ -45,7 +45,7 @@ jobs:
         if: success() || failure()
         with:
           name: JEST Tests        
-          path: junit.xml    
+          path: coverage/lcov-report/clover.xml   
           reporter: jest-junit
 
   livraison:
