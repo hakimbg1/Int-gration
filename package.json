@@ -1,6 +1,6 @@
 {
   "name": "react-todo-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.17.0",
@@ -16,7 +16,9 @@
     "react-scripts": "0.9.0"
   },
   "babel": {
-    "presets": ["@babel/preset-env"]
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "jest": {
     "testEnvironment": "node",
@@ -28,9 +30,19 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
-    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
-    "moduleFileExtensions": ["js", "jsx", "json", "node"],
-    "setupFilesAfterEnv": ["<rootDir>/src/tests/setupTests.js"]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/tests/setupTests.js"
+    ]
   },
   "jest-junit": {
     "outputDirectory": "reports",
