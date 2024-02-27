@@ -1,4 +1,4 @@
-import { addNumbers } from '../src/mathUtils';
+import { addNumbers } from '../src/math';
 
 test('adds two numbers correctly', () => {
   const result = addNumbers(2, 3);
