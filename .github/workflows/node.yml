@@ -37,8 +37,9 @@ jobs:
                   npm run format
 
             - name: Unit Test
-              run: |
-                  npm test -- --env=jsdom --trace-deprecation
+              env:
+                NODE_OPTIONS: "--trace-deprecation"
+              run: npm test
 
             - name: Integration Test
               run: |
