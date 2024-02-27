@@ -1,0 +1,53 @@
+name: CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        description: 'Version to release (major/minor/patch)'
+        required: false
+
+jobs:
+  build:
+    runs-on: windows-latest
+    name: Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+      # Add your build steps here
+
+  livraison:
+    runs-on: windows-latest
+    name: Livraison
+    needs: [build]
+    if: ${{ inputs.version != '' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: Configure GIT
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global credential.helper 'store --file=.git-credentials'
+          echo "https://github.com/hakimbg1/Int-gration.git" > .git-credentials
+
+      - name: Determine version
+        run: |
+          case "${{ inputs.version }}" in
+            "major"|"minor"|"patch")
+              npm version "${{ inputs.version }}"
+              ;;
+            *)
+              echo "Invalid version input. Please use 'major,' 'minor,' or 'patch'."
+              exit 1
+              ;;
+          esac
+
+      - name: Push changes
+        run: git push --follow-tags
