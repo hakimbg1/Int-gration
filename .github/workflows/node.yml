@@ -1,0 +1,50 @@
+name: Node CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 14
+
+    - name: Install Dependencies
+      run: |
+        npm install
+        npm start
+
+    - name: Lint and Format
+      run: |
+        npm run lint
+        npm run format
+
+    - name: Unit Test
+      run: |
+        npm test
+
+    - name: Integration Test
+      run: |
+        npm run test:integration
+
+    - name: End-to-End Test (Bonus)
+      run: |
+        npm run test:e2e
