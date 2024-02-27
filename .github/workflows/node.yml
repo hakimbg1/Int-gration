@@ -39,6 +39,7 @@ jobs:
       - name: Unit Test
         run: |
           npm run test:coverage
+          ls -R reports
 
       - name: Test Report
         uses: dorny/test-reporter@v1
