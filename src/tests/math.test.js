@@ -1,4 +1,4 @@
-import { addNumbers } from '../math';
+const { addNumbers } = require('../math');
 
 test('adds two numbers correctly', () => {
   const result = addNumbers(2, 3);
