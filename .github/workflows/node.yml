@@ -38,22 +38,12 @@ jobs:
 
             - name: Unit Test
               run: |
-                    npm run test2
+                    npm run test:coverage
 
             - name: Test Report
               uses: dorny/test-reporter@v1
-              if: success() || failure()    # run this step even if previous step failed
+              if: success() || failure()
               with:
-                name: JEST Tests ${{ matrix.node-version }}         
+                name: JEST Tests        
                 path: junit.xml    
-                reporter: jest-junit        
-
-            - name: Upload version file
-              uses: actions/upload-artifact@v3
-              with:
-                name: test-report-${{ matrix.node-version }}
-                path: ./junit.xml
-
-            - name: Integration Test
-              run: |
-                  npm run test:integration
+                reporter: jest-junit

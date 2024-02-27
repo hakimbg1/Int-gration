@@ -41,8 +41,7 @@
         "lint": "eslint src/**/* --ext .js,.ts",
         "lint:fix": "npm run lint -- --fix",
         "format": "prettier --write .",
-        "test1": "react-scripts test --env=jsdom",
-        "test2": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config=./package.json",
+        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config=./package.json",
         "test:coverage": "npm run test -- --coverage ",
         "eject": "react-scripts eject"
     }

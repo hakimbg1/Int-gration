@@ -5,7 +5,7 @@ test('adds two numbers correctly', () => {
   expect(result).toBe(5);
 });
 
-test2('adds two numbers correctly', () => {
+test('adds two numbers correctly', () => {
     const result = addNumbers(2, 3);
     expect(result).toBe(6);
   });
