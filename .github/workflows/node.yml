@@ -46,7 +46,7 @@ jobs:
           npm run test:coverage
           ls -R reports
 
-      - name: Publish TU Report
+      - name: Rapport Test unitaire
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
