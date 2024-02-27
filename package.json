@@ -10,6 +10,23 @@
         "prettier": "^3.2.5",
         "react-scripts": "0.9.0"
     },
+    "jest": {
+      "testEnvironment": "node",
+      "reporters": [
+        "default",
+        "jest-junit"
+      ],
+      "coverageDirectory": "reports/coverage"
+    },
+    "jest-junit": {
+      "outputDirectory": "reports",
+      "outputName": "jest-junit.xml",
+      "ancestorSeparator": " › ",
+      "uniqueOutputName": "false",
+      "suiteNameTemplate": "{filepath}",
+      "classNameTemplate": "{classname}",
+      "titleTemplate": "{title}"
+    },
     "dependencies": {
         "bootstrap": "^3.4.1",
         "immutability-helper": "^2.1.1",
@@ -24,7 +41,10 @@
         "lint": "eslint src/**/* --ext .js,.ts",
         "lint:fix": "npm run lint -- --fix",
         "format": "prettier --write .",
-        "test": "react-scripts test --env=jsdom",
+        "test1": "react-scripts test --env=jsdom",
+        "test2": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config=./package.json",
+        "test:coverage": "npm run test -- --coverage ",
         "eject": "react-scripts eject"
     }
+    
 }
