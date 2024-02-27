@@ -37,9 +37,21 @@ jobs:
                   npm run format
 
             - name: Unit Test
-              env:
-                NODE_OPTIONS: "--trace-deprecation"
               run: npm test
+
+            - name: Test Report
+              uses: dorny/test-reporter@v1
+              if: success() || failure()    # run this step even if previous step failed
+              with:
+                name: JEST Tests ${{ matrix.node-version }}         
+                path: junit.xml    
+                reporter: jest-junit        
+
+            - name: Upload version file
+              uses: actions/upload-artifact@v3
+              with:
+                name: test-report-${{ matrix.node-version }}
+                path: ./junit.xml
 
             - name: Integration Test
               run: |
