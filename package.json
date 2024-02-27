@@ -12,13 +12,11 @@
     "prettier": "^3.2.5",
     "react-scripts": "0.9.0"
   },
+  "type": "module",
   "jest": {
-    "testEnvironment": "node",
-    "reporters": [
-      "default",
-      "jest-junit"
-    ],
-    "coverageDirectory": "reports/coverage"
+  "testEnvironment": "node",
+  "reporters": ["default", "jest-junit"],
+  "coverageDirectory": "reports/coverage"
   },
   "jest-junit": {
     "outputDirectory": "reports",
